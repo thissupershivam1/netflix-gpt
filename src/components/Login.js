@@ -5,14 +5,15 @@ import { checkValidData } from '../utils/validate';
 
 import {  createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../utils/firebase"
-import { useNavigate } from 'react-router-dom';
+
+import Header from './Header';
 
 const Login = () => {
 
  
 
     const [isSignIn, setIsSignIn]= useState(true);
-    const navigate = useNavigate();
+    
     const toggleSignInForm=()=>{
         setIsSignIn(!isSignIn)
 
@@ -41,7 +42,7 @@ const Login = () => {
         // Signed up 
         const user = userCredential.user;
         console.log(user);
-        navigate("/browse")
+        
          // ...
   })
   .catch((error) => {
@@ -62,7 +63,7 @@ const Login = () => {
     // Signed in 
        const user = userCredential.user;
        console.log(user);
-       navigate("/browse")
+      
       // ...
   })
   .catch((error) => {
@@ -92,21 +93,22 @@ const Login = () => {
       };
   return (
     <>
+    <Header/>
     <div style={divStyle}  
 
     className='flex flex-col items-center justify-center brightness-50'
     
     >  
 
-    <div>
+    {/* <div>
     <img src={Netflix_logo} alt="logo" style={logoStyle} className='h-20 w-40 font-semibold saturate-150 contrast-100' />
 
-    </div>
+    </div> */}
 
     
 
 
-    <div className='w-96  bg-black bg-opacity-80 rounded-lg'>
+    <div className='w-96  bg-black bg-opacity-80 rounded-lg mt-[-100px]'>
 
         <form action="
         "  onSubmit={(e)=>{e.preventDefault()}} className='w-full flex flex-col items-center justify-center'>
